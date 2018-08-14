@@ -15,6 +15,10 @@ public class TransformSender : MonoBehaviour
     void Update ()
     {
         var pos = transform.position;
+        // if(pos.y < -10.0f){
+        //     Debug.Log("TransformSender: "+ pos.y);
+        //     pos =  new Vector3(0.0f,2.0f,0.0f);
+        // }
         var positionUpdate = new Position.Update()
             .SetCoords(new Coordinates(pos.x, pos.y, pos.z));
         PositionWriter.Send(positionUpdate);
