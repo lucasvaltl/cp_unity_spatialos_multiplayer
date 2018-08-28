@@ -13,7 +13,7 @@ public class PlayerMover : MonoBehaviour {
     [Require] private Position.Writer PositionWriter;
     [Require] private Rotation.Writer RotationWriter;
     [Require] private PlayerInput.Reader PlayerInputReader;
-    public Vector3 SpawnPoint = new Vector3(0.0f,2.0f,0.0f);
+    public Vector3 SpawnPoint = new Vector3(0.0f,5.0f,0.0f);
 
     private Rigidbody rigidbody;
     private Transform transform;
@@ -34,7 +34,8 @@ public class PlayerMover : MonoBehaviour {
 			 	direction.Normalize();
 	 			}
         rigidbody.AddForce(direction * SimulationSettings.PlayerAcceleration);
-        
+
+
         var pos = rigidbody.position;
         if(pos.y < -10.0f){
             Debug.Log("playermover: "+ pos.y);
