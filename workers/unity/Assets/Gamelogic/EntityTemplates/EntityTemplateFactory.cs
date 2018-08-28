@@ -15,6 +15,7 @@ namespace Assets.Gamelogic.EntityTemplates
     {
         public static Entity CreatePlayerCreatorTemplate()
         {
+          
             var playerCreatorEntityTemplate = EntityBuilder.Begin()
                 .AddPositionComponent(new Improbable.Coordinates(0, SimulationSettings.PlayerSpawnHeight, 0).ToUnityVector(), CommonRequirementSets.PhysicsOnly)
                 .AddMetadataComponent(entityType: SimulationSettings.PlayerCreatorPrefabName)
@@ -24,7 +25,6 @@ namespace Assets.Gamelogic.EntityTemplates
                 .AddComponent(new PlayerCreation.Data(), CommonRequirementSets.PhysicsOnly)
                 .AddComponent(new ClientEntityStore.Data(new Map<string, EntityId>()), CommonRequirementSets.PhysicsOnly)
                 .Build();
-
             return playerCreatorEntityTemplate;
         }
 

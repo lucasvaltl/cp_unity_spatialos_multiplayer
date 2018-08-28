@@ -26,7 +26,6 @@ public class PlayerMover : MonoBehaviour {
 
 	void FixedUpdate ()
   {
-
         var joystick = PlayerInputReader.Data.joystick;
         var direction = new Vector3(joystick.xAxis, 0, joystick.yAxis);
 				if (direction.sqrMagnitude > 1)
@@ -35,10 +34,8 @@ public class PlayerMover : MonoBehaviour {
 	 			}
         rigidbody.AddForce(direction * SimulationSettings.PlayerAcceleration);
 
-
         var pos = rigidbody.position;
         if(pos.y < -10.0f){
-            Debug.Log("playermover: "+ pos.y);
             rigidbody.isKinematic = true;
             transform.position = SpawnPoint;
             rigidbody.isKinematic = false;

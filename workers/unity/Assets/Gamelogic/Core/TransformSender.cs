@@ -15,6 +15,7 @@ public class TransformSender : MonoBehaviour
     void Update ()
     {
         var pos = transform.position;
+      
         var positionUpdate = new Position.Update()
             .SetCoords(new Coordinates(pos.x, pos.y, pos.z));
         PositionWriter.Send(positionUpdate);
